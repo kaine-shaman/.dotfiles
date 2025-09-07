@@ -1,0 +1,28 @@
+-- vim.cmd.colorscheme "habamax"
+-- vim.cmd.colorscheme "miniautumn"
+-- vim.cmd.colorscheme "minispring"
+-- vim.cmd.colorscheme "minisummer"
+-- vim.cmd.colorscheme "miniwinter"
+-- vim.cmd.colorscheme "randomhue"
+-- vim.cmd.colorscheme "retrobox"
+-- vim.cmd.colorscheme "slate"
+-- vim.cmd.colorscheme "wildcharm"
+
+
+-- vim.cmd.colorscheme "base16-black-metal"
+-- vim.cmd.colorscheme "base16-black-metal-bathory"
+-- vim.cmd.colorscheme "base16-black-metal-burzum"
+-- vim.cmd.colorscheme "base16-black-metal-dark-funeral"
+-- vim.cmd.colorscheme "base16-black-metal-gorgoroth"
+-- vim.cmd.colorscheme "base16-black-metal-immortal"
+-- vim.cmd.colorscheme "base16-black-metal-khold"
+-- vim.cmd.colorscheme "base16-black-metal-marduk"
+-- vim.cmd.colorscheme "base16-black-metal-mayhem"
+-- vim.cmd.colorscheme "base16-black-metal-nile"
+-- vim.cmd.colorscheme "base16-black-metal-venom"
+
+-- vim.cmd.colorscheme "bogster"
+-- vim.cmd.colorscheme "melange"
+-- vim.cmd.colorscheme "moonfly"
+-- vim.cmd.colorscheme "vague"
+

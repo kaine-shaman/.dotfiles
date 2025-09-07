@@ -1,0 +1,19 @@
+[merge]
+    tool = meld
+[diff]
+    tool = nvimdiff
+
+[color "diff"]
+    meta = yellow
+    frag = white bold
+    old  = magenta
+    new  = cyan
+[color "status"]
+    added     = cyan
+    changed   = yellow
+    untracked = magenta
+
+[user]
+    email = kaine.shaman@gmail.com
+    name  = Kaine
+
