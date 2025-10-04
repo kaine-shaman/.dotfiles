@@ -13,7 +13,7 @@ return {
 
         local keymap = vim.keymap
 
-        keymap.set("n", "<leader>wr", "<cmd>AutoSession restore<CR>", { desc = "[R]estore workspace for cwd" })
-        keymap.set("n", "<leader>ws", "<cmd>AutoSession save<CR>"   , { desc = "[S]ave workspace for root dir" })
+        keymap.set("n", "<leader>br", "<cmd>AutoSession restore<CR>", { desc = "[R]estore workspace for cwd" })
+        keymap.set("n", "<leader>bs", "<cmd>AutoSession save<CR>"   , { desc = "[S]ave workspace for root dir" })
     end,
 }

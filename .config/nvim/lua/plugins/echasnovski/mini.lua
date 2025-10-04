@@ -54,7 +54,7 @@ return {
         -- Stip trailing whitespace
         local miniTrailspace = require("mini.trailspace")
         miniTrailspace.setup()
-        vim.keymap.set("n", "<leader>lt" , miniTrailspace.trim, { desc = "[T]rim trailing whitespace" })
+        vim.keymap.set("n", "<leader>lt", miniTrailspace.trim, { desc = "[T]rim trailing whitespace" })
 
         -- Simple and easy statusline.
         --  You could remove this setup call if you don't like it,
@@ -141,5 +141,8 @@ return {
             -- -- idle time if user input is required.
             -- silent = false,
         })
+
+        local bufremove = require("mini.bufremove")
+        vim.keymap.set("n", "<leader>bd", bufremove.delete, { desc = "[D]elete" })
     end,
 }

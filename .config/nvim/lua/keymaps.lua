@@ -8,11 +8,12 @@ local opts = { noremap = true, silent = true }
 -- disable the spacebar key's default behavior in Normal and Visual modes
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
-keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
 -- better up/down, allow moving the cursor through wrapped lines with j, k
-keymap.set({ "n", "x" }, "j"     , "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+keymap.set({ "n", "x" }, "j"     , "v:count == 0 ? 'gj' : 'j'", {
+    desc = "Down",
+    silent = true,
+    expr = true,
+})
 keymap.set({ "n", "x" }, "k"     , "v:count == 0 ? 'gk' : 'k'", { desc = "Up"  , expr = true, silent = true })
 keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 keymap.set({ "n", "x" }, "<Up>"  , "v:count == 0 ? 'gk' : 'k'", { desc = "Up"  , expr = true, silent = true })
@@ -52,11 +53,7 @@ keymap.set(
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- save file
-keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
--- keymap.set("n", "<C-s>", "<cmd>w<CR>", opts)
-
--- save file without auto-formatting
--- vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
+keymap.set({ "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- sort lines
 keymap.set("v", "<C-s>", ":'<,'>sort<CR>", opts)
@@ -94,7 +91,7 @@ keymap.set("i", ";", ";<c-g>u")
 
 -- Buffers
 keymap.set("n", "<leader>bn", "<cmd>enew<CR>"       , { desc = "Open [N]ew buffer"     , noremap = true, silent = true })
-keymap.set("n", "<leader>bd", "<cmd>b#|bd#<CR>"     , { desc = "[D]elete"              , noremap = true, silent = true })
+-- keymap.set("n", "<leader>bd", "<cmd>b#|bd#<CR>"     , { desc = "[D]elete"              , noremap = true, silent = true })
 keymap.set("n", "<leader>bD", "<cmd>bd!<CR>"        , { desc = "[D]elete with window"  , noremap = true, silent = true })
 keymap.set("n", "<leader>ba", "<cmd>%bd!<CR>"       , { desc = "Close [A]ll buffers"   , noremap = true, silent = true })
 keymap.set("n", "<leader>bo", "<cmd>%bd!|e#|bd#<CR>", { desc = "Close [O]ther buffers" , noremap = true, silent = true })
@@ -106,10 +103,10 @@ keymap.set("n", "[b"   , "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "]b"   , "<cmd>bnext<cr>"    , { desc = "Next Buffer" })
 
 -- Window management
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window [V]ertically"  , remap = true })
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window [H]orizontally", remap = true })
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits [E]qual size"   , remap = true })
-keymap.set("n", "<leader>sc", "<C-w>c", { desc = "[C]lose window"             , remap = true })
+keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window [V]ertically"  , remap = true })
+keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split window [H]orizontally", remap = true })
+keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits [E]qual size"   , remap = true })
+keymap.set("n", "<leader>wc", "<C-w>c", { desc = "[C]lose window"             , remap = true })
 
 -- Navigate between windows
 keymap.set("n", "<BS>" , ":wincmd h<CR>", { desc = "Go to Left Window" , remap = true, silent = true })
@@ -164,6 +161,8 @@ keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi"                              
 keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi"                                  , { desc = "Move Up" })
 keymap.set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv"      , { desc = "Move Down" })
 keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+-- keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+-- keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 -- Keep last yanked when pasting
 -- keymap.set("v", "p", '"_dP', opts)
@@ -171,9 +170,14 @@ keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv
 -- Replace word under cursor
 keymap.set("n", "<leader>j", "*``cgn", { noremap = true, silent = true, desc = "Replace word under cursor" })
 
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 -- Explicitly yank to system clipboard (highlighted and entire row)
 keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "[Y]ank to clipboard" })
--- keymap.set({ "n"      }, "<leader>Y", [["+Y]], { desc = "Yank entire row to clipboard" })
+keymap.set({ "n"      }, "<leader>Y", [["+Y]], { desc = "Yank entire row to clipboard" })
+
+keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Toggle diagnostics
 local diagnostics_active = true
@@ -183,8 +187,8 @@ keymap.set("n", "<leader>td", function()
 end, { desc = "[D]iagnostics" })
 
 -- Diagnostic
-keymap.set("n", "<leader>do", vim.diagnostic.open_float, { desc = "[O]pen floating diagnostic message" })
-keymap.set("n", "<leader>df", vim.diagnostic.setloclist, { desc = "Open diagnostic quick[F]ix list" })
+keymap.set("n", "<leader>xo", vim.diagnostic.open_float, { desc = "[O]pen floating diagnostic message" })
+keymap.set("n", "<leader>xf", vim.diagnostic.setloclist, { desc = "Open diagnostic quick[F]ix list" })
 local diagnostic_goto = function(next, severity)
     local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
     severity = severity and vim.diagnostic.severity[severity] or nil
@@ -215,12 +219,12 @@ keymap.set("n", "<leader>xq", function()
   end
 end, { desc = "Quickfix List" })
 
-keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
-keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
+keymap.set("n", "[q", '<cmd>cprev<cr>', { desc = "Previous Quickfix" })
+keymap.set("n", "]q", '<cmd>cnext<cr>', { desc = "Next Quickfix" })
 
 -- Save and load session
--- keymap.set("n", "<leader>ws", ":mksession! .session.vim<CR>", opts)
--- keymap.set("n", "<leader>wr", ":source .session.vim<CR>"    , opts)
+-- keymap.set("n", "<leader>bs", ":mksession! .session.vim<CR>", opts)
+-- keymap.set("n", "<leader>br", ":source .session.vim<CR>"    , opts)
 
 -- native snippets. only needed on < 0.11, as 0.11 creates these by default
 if vim.fn.has("nvim-0.11") == 0 then
@@ -231,3 +235,5 @@ if vim.fn.has("nvim-0.11") == 0 then
         return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
     end, { expr = true, desc = "Jump Previous" })
 end
+
+keymap.set("n", "<M-m>", '<cmd>MarksQFListAll<cr>', { desc = "Show all marks" })

@@ -16,7 +16,7 @@ return {
                 vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
             end,
             layout = {
-                min_width = 64,
+                min_width = 57,
                 default_direction = "prefer_left",
             },
         })

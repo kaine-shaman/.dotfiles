@@ -6,8 +6,8 @@ return {
             -- theme = "boo",
             -- theme = "crimson_moonlight",
             -- theme = "forest_stream",
-            theme = "radioactive_waste",
-            -- theme = "sunset_cloud",
+            -- theme = "radioactive_waste",
+            theme = "sunset_cloud",
         })
     end,
 }

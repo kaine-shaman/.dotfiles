@@ -4,7 +4,14 @@ return {
         -- Event to trigger linters
         events = { "BufWritePost", "BufReadPost", "InsertLeave" },
         linters_by_ft = {
-            fish = { "fish" },
+            fish            = { "fish" },
+            javascript      = { "eslint" },
+            javascriptreact = { "eslint" },
+            markdown        = { "markdownlint" },
+            python          = { "pylint" },
+            svelte          = { "eslint" },
+            typescript      = { "eslint" },
+            typescriptreact = { "eslint" },
             -- Use the "*" filetype to run linters on all filetypes.
             -- ['*'] = { 'global linter' },
             -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.

@@ -32,6 +32,8 @@ opt.smartcase  = true
 -- Keep signcolumn on by default
 opt.signcolumn = "yes"
 
+opt.isfname: append("@-@")
+
 opt.updatetime = 200 -- Decrease update time
 opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
 
@@ -67,10 +69,12 @@ opt.inccommand = "nosplit" -- preview incremental substitute
 opt.jumpoptions = "view"
 
 -- Show which line your cursor is on
-opt.cursorline = false
+-- opt.cursorline = true
 
-opt.scrolloff     = 10 -- minimal number of screen lines to keep above and below the cursor
-opt.sidescrolloff = 20 -- minimal number of screen columns either side of cursor if wrap is `false`
+opt.scrolloff     =  8 -- minimal number of screen lines to keep above and below the cursor
+opt.sidescrolloff = 16 -- minimal number of screen columns either side of cursor if wrap is `false`
+
+-- opt.colorcolumn = "80"
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -151,7 +155,8 @@ opt.swapfile    = false
 opt.backup      = false
 opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
--- opt.hlsearch = false -- Set highlight on search
+-- opt.hlsearch  = false -- Set highlight on search
+opt.incsearch = true
 
 opt.completeopt = "menu,menuone,noselect" -- Set completeopt to have a better completion experience
 

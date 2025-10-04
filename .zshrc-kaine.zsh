@@ -32,7 +32,10 @@ configure_prompt() {
 # Aliases
 [ -f "/home/kaine/.aliases.zsh" ] && source "/home/kaine/.aliases.zsh"
 
-export PATH=$PATH:/home/kaine/.local/bin:/home/kaine/.cargo/bin:/opt/nvim-linux-x86_64/bin:/opt/zig-x86_64-linux-0.15.1
+# Bindings
+[ -f "/home/kaine/.bindings.zsh" ] && source "/home/kaine/.bindings.zsh"
+
+export PATH=$PATH:/home/kaine/.local/bin:/home/kaine/.config/scripts:/home/kaine/.cargo/bin:/opt/nvim-linux-x86_64/bin:/opt/zig-x86_64-linux-0.15.1
 
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

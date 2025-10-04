@@ -27,83 +27,163 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 require("lazy").setup({
+
     "folke/ts-comments.nvim",
-    -- "NMAC427/guess-indent.nvim",        -- detect tabstop and shiftwidth automatically
     "nvim-lua/plenary.nvim",
-    "stevearc/dressing.nvim",
-    "tpope/vim-fugitive",                  -- powerful Git integration for Vim
-    "tpope/vim-rhubarb",                   -- GitHub integration for vim-fugitive
-    "tpope/vim-sleuth",                    -- detect tabstop and shiftwidth automatically
-    "windwp/nvim-ts-autotag",              -- autoclose tags
+    "stevearc/dressing.nvim", -- ????
+    -- require("plugins.mfussenegger.nvim-dap"), -- debugger
+    -- require("plugins.mfussenegger.nvim-lint"),
+    -- require("plugins.mfussenegger.nvim-lint-lazy"),
+    -- require("plugins.nvim-treesitter.nvim-treesitter-textobjects"),
+    -- require("plugins.tpope.vim-dadbod"), -- database
+    require("plugins.RishabhRD.nvim-cheat"), -- cht.sh
+    require("plugins.ThePrimeagen.harpoon"),
+    require("plugins.akinsho.toggleterm"),
+    require("plugins.echasnovski.mini"),
+    require("plugins.folke.flash"),
+    require("plugins.folke.lazydev"), -- ????
+    require("plugins.folke.trouble"),
+    require("plugins.neovim.nvim-lspconfig"),
+    require("plugins.numToStr.Comment"),
+    require("plugins.nvim-treesitter.nvim-treesitter"),
+    require("plugins.rmagatti.auto-session"),
+    require("plugins.stevearc.aerial"), -- outline
+
+    -- ????
+    -- "VonHeikemen/lsp-zero.nvim",
+    -- "eandrju/cellular-automaton.nvim",
+    -- "github/copilot.vim",
+    -- "laytan/cloak.nvim",
+    -- "mbbill/undotree",
+    -- "nvim-treesitter/nvim-treesitter-context",
+    -- "nvim-treesitter/playground",
+    -- "theprimeagen/refactoring.nvim",
+    -- ????
+
+    -- detect tabstop and shiftwidth
+    --
+    "tpope/vim-sleuth",
+    -- "NMAC427/guess-indent.nvim",
+
+    -- marks
+    --
+    require("plugins.chentoast.marks"),
+    require("plugins.tomasky.bookmarks"),
+
+    -- search
+    --
+    -- "echasnovski/mini.pick", -- ????
+    require("plugins.ibhagwan.fzf-lua"),
+    require("plugins.nvim-telescope.telescope"),
+
+    -- git
+    --
+    "tpope/vim-fugitive", -- Git integration
+    "tpope/vim-rhubarb",  -- GitHub integration for vim-fugitive
+    require("plugins.kdheepak.lazygit"),
+    require("plugins.lewis6991.gitsigns"),
+    require("plugins.sindrets.diffview"),
+
+    -- files
+    --
+    -- "stevearc/oil.nvim", -- ????
+    -- require("plugins.nvim-tree.nvim-tree"),
+    require("plugins.nvim-neo-tree.neo-tree"),
+
+    -- find/replace
+    --
+    -- require("plugins.gbprod.substitute"),
+    require("plugins.MagicDuck.grug-far"),
+
+    -- formatting
+    --
+    "windwp/nvim-ts-autotag",
+    -- require("plugins.nvimtools.none-ls"),
+    -- require("plugins.windwp.nvim-autopairs"),
+    require("plugins.stevearc.conform"),
+
+    -- autocomplete
+    --
+    -- require("plugins.saghen.blink-cmp"),
+    require("plugins.hrsh7th.nvim-cmp"),
+
+    -- layout
+    --
+    require("plugins.folke.zen-mode"),
+    require("plugins.szw.vim-maximizer"),
+
+    -- visuals
+    --
+    -- require("plugins.tiagovla.scope"), -- scope buffers to tabs
+    require("plugins.folke.todo-comments"),
+    require("plugins.folke.which-key"),
+    require("plugins.goolord.alpha-nvim"),
+    require("plugins.lukas-reineke.indent-blankline"),
+    require("plugins.nvim-lualine.lualine"),
+    require("plugins.tummetott.reticle"),
+    require("plugins.willothy.nvim-cokeline"),
+    require("plugins.xiyaowong.transparent"),
 
     -- colorschemes
     --
+    -- "rktjmp/lush.nvim", -- dependency for some
+    --
+    -- "AlexvZyl/nordic.nvim",
+    -- "EdenEast/nightfox.nvim",
+    -- "Mofiqul/adwaita.nvim",
+    -- "NTBBloodbath/doom-one.nvim",
+    -- "Shatur/neovim-ayu",
+    -- "Tsuzat/NeoSolarized.nvim",
     -- "bluz71/vim-moonfly-colors",
+    -- "bluz71/vim-nightfly-colors",
+    -- "catppuccin/nvim",
+    -- "craftzdog/solarized-osaka.nvim",
+    -- "folke/tokyonight.nvim",
+    -- "kvrohit/mellow.nvim",
+    -- "kvrohit/rasmus.nvim",
+    -- "kvrohit/substrata.nvim",
+    -- "luisiacc/gruvbox-baby",
+    -- "marko-cerovac/material.nvim",
+    -- "mcchrish/zenbones.nvim",
     -- "metalelf0/base16-black-metal-scheme",
+    -- "mhartington/oceanic-next",
+    -- "navarasu/onedark.nvim",
+    -- "olivercederborg/poimandres.nvim",
+    -- "oxfist/night-owl.nvim",
+    -- "ramojus/mellifluous.nvim",
+    -- "ray-x/aurora",
+    -- "ray-x/starry.nvim",
+    -- "rebelot/kanagawa.nvim",
+    -- "ribru17/bamboo.nvim",
+    -- "rockyzhang24/arctic.nvim",
+    -- "rose-pine/neovim",
+    -- "sainnhe/gruvbox-material",
+    -- "samharju/synthweave.nvim",
     -- "savq/melange-nvim",
+    -- "shaunsingh/nord.nvim",
+    -- "tiagovla/tokyodark.nvim",
+    -- "uloco/bluloco.nvim",
     -- "vague2k/vague.nvim",
     -- "vv9k/bogster",
-    --
-    -- require("colorschemes.EdenEast.nightfox"),
+    -- "xero/miasma.nvim",
+    -- "yashguptaz/calvera-dark.nvim",
+    require("colorschemes.EdenEast.nightfox"),
     -- require("colorschemes.ellisonleao.gruvbox"),
     -- require("colorschemes.folke.tokyonight"),
-    -- require("colorschemes.mcauley-penney.techbase"),
-    require("colorschemes.maxmx03.fluoromachine"),
+    -- require("colorschemes.maxmx03.fluoromachine"),
     -- require("colorschemes.maxmx03.solarized"),
+    -- require("colorschemes.mcauley-penney.techbase"),
     -- require("colorschemes.metalelf0.black-metal-theme-neovim"),
     -- require("colorschemes.rockerBOO.boo-colorscheme"),
     -- require("colorschemes.rose-pine.neovim"),
     -- require("colorschemes.scottmckendry.cyberdream"),
     -- require("colorschemes.zenbones-theme.zenbones"),
 
-    require("plugins.RishabhRD.nvim-cheat"),               -- cht.sh integration
-    require("plugins.ThePrimeagen.harpoon"),
-    require("plugins.akinsho.toggleterm"),
-    require("plugins.chentoast.marks"),
-    require("plugins.echasnovski.mini"),
-    require("plugins.folke.flash"),
-    require("plugins.folke.lazydev"),
-    require("plugins.folke.todo-comments"),
-    require("plugins.folke.trouble"),
-    require("plugins.folke.which-key"),
-    -- require("plugins.folke.zen-mode"),
-    -- require("plugins.gbprod.substitute"),
-    require("plugins.goolord.alpha-nvim"),
-    require("plugins.hrsh7th.nvim-cmp"),                   -- autocomplete
+    -- AI
+    --
     -- require("plugins.jackMort.ChatGPT"),
-    require("plugins.kdheepak.lazygit"),
-    require("plugins.lewis6991.gitsigns"),
-    require("plugins.lukas-reineke.indent-blankline"),
-    require("plugins.MagicDuck.grug-far"),                 -- find/replace
-    -- require("plugins.mfussenegger.nvim-dap"),           -- debugger
-    -- require("plugins.mfussenegger.nvim-lint"),
-    require("plugins.mfussenegger.nvim-lint-lazy"),
-    -- require("plugins.neovim.nvim-lspconfig"),
-    require("plugins.neovim.nvim-lspconfig"),
-    require("plugins.noib3.cokeline"),
-    require("plugins.numToStr.Comment"),
-    require("plugins.nvim-lualine.lualine"),
-    require("plugins.nvim-neo-tree.neo-tree"),
-    require("plugins.nvim-telescope.telescope"),
-    -- require("plugins.nvim-tree.nvim-tree"),             -- replaced by neo-tree
-    -- require("plugins.nvimtools.none-ls"),               -- formatting
-    require("plugins.nvim-treesitter.nvim-treesitter"),
-    -- require("plugins.nvim-treesitter.nvim-treesitter-textobjects"),
-    require("plugins.rmagatti.auto-session"),
-    -- require("plugins.saghen.blink-cmp"),
-    require("plugins.sindrets.diffview"),
-    require("plugins.stevearc.aerial"),                    -- outline
-    require("plugins.stevearc.conform"),                   -- formatting
-    require("plugins.szw.vim-maximizer"),
-    -- require("plugins.tiagovla.scope"),                  -- scope buffers to tabs
-    -- require("plugins.tpope.vim-dadbod"),                -- database
-    -- require("plugins.windwp.nvim-autopairs"),
-    require("plugins.xiyaowong.transparent"),
-    -- require("plugins.yetone.avante"),                   -- AI
+    -- require("plugins.yetone.avante"),
 
-    -- ????
-    -- "echasnovski/mini.pick",
-    -- "stevearc/oil.nvim",
 
     -- NOTE: Plugins can be added with a link (or for a github repo: "owner/repo" link).
     --  Plugins can also be added by using a table,

@@ -47,34 +47,11 @@ return {
                 --  See `:help K` for why this keymap
                 map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-                -- Jump to the definition of the word under your cursor.
-                --  This is where a variable was first declared, or where a function is defined, etc.
-                --  To jump back, press <C-T>.
-                map("gd", require("telescope.builtin").lsp_definitions, "Goto [D]efinition")
+                map("<C-s>", vim.lsp.buf.signature_help, "Signature Help", "i")
 
                 -- WARN: This is not Goto Definition, this is Goto Declaration.
                 --  For example, in C this would take you to the header
                 map("gD", vim.lsp.buf.declaration, "Goto [D]eclaration")
-
-                -- Find references for the word under your cursor.
-                map("gr", require("telescope.builtin").lsp_references, "Goto [R]eferences")
-
-                -- Jump to the implementation of the word under your cursor.
-                --  Useful when your language has ways of declaring types without an actual implementation.
-                map("gI", require("telescope.builtin").lsp_implementations, "Goto [I]mplementation")
-
-                -- Jump to the type of the word under your cursor.
-                --  Useful when you're not sure what type a variable is and you want to see
-                --  the definition of its *type*, not where it was *defined*.
-                map("<leader>ld", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-
-                -- Fuzzy find all the symbols in your current document.
-                --  Symbols are things like variables, functions, types, etc.
-                map("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
-
-                -- Fuzzy find all the symbols in your current workspace
-                --  Similar to document symbols, except searches over your whole project.
-                map("<leader>lws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace [S]ymbols")
 
                 -- Rename the variable under your cursor
                 --  Most Language Servers support renaming across files, etc.
@@ -199,9 +176,12 @@ return {
         -- - settings (table): Override the default settings passed when initializing the server.
         local servers = {
             bashls = {},
+            clangd = {},
+            cmake = {},
             docker_compose_language_service = {},
             ts_ls = {},
             ruff = {},
+            ols = {},
             zls = {},
             svelte = {},
             pylsp = {
@@ -220,10 +200,12 @@ return {
                     },
                 },
             },
+            gopls = {},
             html = { filetypes = { "html", "twig", "hbs" } },
             cssls = {},
             tailwindcss = {},
             dockerls = {},
+            prismals = {},
             sqlls = {},
             -- terraformls = {},
             jsonls = {},
@@ -254,48 +236,31 @@ return {
         -- Ensure the servers and tools above are installed
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {
-            "astro",
-            "bashls",
+            -- "astro",
             -- "black", -- python formatter -- ERROR --
-            "clangd",
-            "cmake",
-            "cssls",
-            "emmet_language_server",
-            "emmet_ls",
+            -- "emmet_language_server",
+            -- "emmet_ls",
             -- "eslint", --
             -- "eslint_d", --
-            "fortls",
+            -- "fortls",
             -- "gdscript", --
-            "gopls",
-            "graphql",
+            -- "graphql",
             -- "hls", --
-            "html",
-            "htmx",
-            "intelephense",
+            -- "htmx",
+            -- "intelephense",
             -- "isort", -- python formatter -- ERROR --
-            "jsonls",
-            "lua_ls",
-            "marksman",
+            -- "marksman",
             -- "nil_ls", --
-            "nim_langserver",
-            "ols",
+            -- "nim_langserver",
             -- "prettier", -- prettier formatter -- ERROR --
-            "prismals",
             -- "pylint", -- ERROR --
-            "pylsp",
-            "pyright",
-            "rust_analyzer",
-            "sqlls",
-            "stylua", -- Used to format lua code
-            "svelte",
-            "tailwindcss",
-            "templ",
-            "texlab",
-            "ts_ls",
+            -- "pyright",
+            -- "rust_analyzer",
+            -- "stylua", -- Used to format lua code
+            -- "templ",
+            -- "texlab",
             -- "tsserver", --
-            "wgsl_analyzer",
-            "yamlls",
-            -- "zls", --
+            -- "wgsl_analyzer",
         })
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

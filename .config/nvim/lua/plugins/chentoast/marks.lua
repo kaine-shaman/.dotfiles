@@ -13,8 +13,8 @@ return {
         -- whether the shada file is updated after modifying uppercase marks. default false
         force_write_shada = false,
 
-        -- how often (in ms) to redraw signs/recompute mark positions. 
-        -- higher values will have better performance but may cause visual lag, 
+        -- how often (in ms) to redraw signs/recompute mark positions.
+        -- higher values will have better performance but may cause visual lag,
         -- while lower values may cause performance penalties. default 150.
         refresh_interval = 250,
 
@@ -35,9 +35,9 @@ return {
         -- sign/virttext. Bookmarks can be used to group together positions and quickly move
         -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
         -- default virt_text is "".
-        bookmark_0 = {
+        bookmark_1 = {
             sign = "⚑",
-            virt_text = "hello world",
+            virt_text = "",
 
             -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
             -- defaults to false.
@@ -62,7 +62,7 @@ return {
         -- m{        Move to the previous bookmark having the same type as the bookmark under
         --           the cursor. Works across buffers.
         -- dm=       Delete the bookmark under the cursor.
-        mappings = {}
+        -- mappings = {}
     },
 }
 

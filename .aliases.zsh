@@ -18,15 +18,16 @@ alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
 alias gav='git add --verbose'
+alias gafzf='git ls-files -m -o --exclude-standard | grep -v "__pycache__" | fzf -m --print0 | xargs -0 -o -t git add' # Git add with fzf
 
-alias gam='git am'
-alias gama='git am --abort'
-alias gamc='git am --continue'
-alias gams='git am --skip'
-alias gamscp='git am --show-current-patch'
+# alias gam='git am'
+# alias gama='git am --abort'
+# alias gamc='git am --continue'
+# alias gams='git am --skip'
+# alias gamscp='git am --show-current-patch'
 
-alias gap='git apply'
-alias gapt='git apply --3way'
+# alias gap='git apply'
+# alias gapt='git apply --3way'
 
 alias gb='git branch'
 alias gbD='git branch -D'
@@ -53,7 +54,7 @@ alias gcan!='git commit -v -a --no-edit --amend'
 alias gcans!='git commit -v -a -s --no-edit --amend'
 alias gcas='git commit -a -s'
 alias gcasm='git commit -a -s -m'
-alias gcmsg='git commit -m'
+alias gcm='git commit -m'
 alias gcn!='git commit -v --no-edit --amend'
 alias gcs='git commit -S'
 alias gcsm='git commit -s -m'
@@ -61,6 +62,7 @@ alias gcsm='git commit -s -m'
 alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gcor='git checkout --recurse-submodules'
+alias gcofzf='git branch | fzf | xargs git checkout' # Select branch with fzf
 
 alias gccd='git clone --recurse-submodules "$@" && cd "$(basename $_ .git)"'
 alias gcl='git clone --recurse-submodules'
@@ -70,7 +72,7 @@ alias gcf='git config --list'
 alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dffx'
 
-alias gcount='git shortlog -sn'
+# alias gcount='git shortlog -sn'
 
 alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
@@ -85,18 +87,20 @@ alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gdup='git diff @{upstream}'
 alias gdv='git diff -w $@ | view -'
 alias gdw='git diff --word-diff'
+alias grfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore' # Git restore with fzf
+alias grsfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore --staged' # Git restore --staged with fzf
 
-alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
+# alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
 
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
-alias gfg='git ls-files | grep'
-alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+# alias gfg='git ls-files | grep'
+# alias gignored='git ls-files -v | grep "^[[:lower:]]"'
 
-alias gg='git gui citool'
-alias gga='git gui citool --amend'
+# alias gg='git gui citool'
+# alias gga='git gui citool --amend'
 
 alias gp='git push'
 alias ggp='git push origin'
@@ -128,36 +132,38 @@ alias ghh='git help'
 alias gignore='git update-index --assume-unchanged'
 alias gunignore='git update-index --no-assume-unchanged'
 
-alias gk='gitk --all --branches &!'
-alias gke='gitk --all $(git log -g --pretty=%h) &!'
+# alias gk='gitk --all --branches &!'
+# alias gke='gitk --all $(git log -g --pretty=%h) &!'
 
 alias glg='git log --stat'
+alias glgp='git log --stat -p'
 alias glgg='git log --graph'
+alias glp='git log --graph --decorate --pretty="oneline"'
 alias glgga='git log --graph --decorate --all'
 alias glgm='git log --graph --max-count=10'
-alias glgp='git log --stat -p'
-alias glo='git log --oneline --decorate'
 alias glod='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset"'
 alias glods='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset" --date=short'
-alias glog='git log --oneline --decorate --graph'
-alias gloga='git log --oneline --decorate --graph --all'
 alias glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
 alias glola='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --all'
 alias glols='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
-alias glp='git log --pretty=<format>'
+alias glo='git log --oneline --decorate'
+alias glog='git log --oneline --decorate --graph'
+alias gloga='git log --oneline --decorate --graph --all'
 
 alias gm='git merge'
+alias gmn='git merge --no-commit'
 alias gma='git merge --abort'
 alias gmtl='git mergetool --no-prompt'
-alias gmtlvim='git mergetool --no-prompt --tool=vimdiff'
+alias gmtlnv='git mergetool --no-prompt --tool=nvimdiff'
 
-alias gr='git remote'
-alias gra='git remote add'
-alias grmv='git remote rename'
-alias grrm='git remote remove'
-alias grset='git remote set-url'
-alias grup='git remote update'
-alias grv='git remote -v'
+# alias gr='git remote'
+# alias gra='git remote add'
+# alias grmv='git remote rename'
+# alias grrm='git remote remove'
+# alias grset='git remote set-url'
+# alias grup='git remote update'
+# alias grv='git remote -v'
+# alias grsh='git remote show'
 
 alias grb='git rebase'
 alias grba='git rebase --abort'
@@ -175,80 +181,50 @@ alias gru='git reset --'
 
 alias grm='git rm'
 alias grmc='git rm --cached'
+alias grmfzf='git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 -o -t git rm' # Git rm with fzf
 
-alias grs='git restore'
-alias grss='git restore --source'
-alias grst='git restore --staged'
+# alias grs='git restore'
+# alias grss='git restore --source'
+# alias grst='git restore --staged'
 
-alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
+# alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 
 alias gsb='git status -sb'
 alias gss='git status -s'
 alias gst='git status'
 
-alias gsd='git svn dcommit'
-alias gsr='git svn rebase'
+# alias gsd='git svn dcommit'
+# alias gsr='git svn rebase'
 
-alias gsh='git show'
-alias gsps='git show --pretty=short --show-signature'
+# alias gsh='git show'
+# alias gsps='git show --pretty=short --show-signature'
 
-alias gsi='git submodule init'
-alias gsu='git submodule update'
+# alias gsi='git submodule init'
+# alias gsu='git submodule update'
 
-alias gsta='git stash push'
+alias gsta='git stash push --keep-index'
 alias gstaa='git stash apply'
 alias gstall='git stash --all'
 alias gstc='git stash clear'
 alias gstd='git stash drop'
 alias gstl='git stash list'
 alias gstp='git stash pop'
-alias gsts='git stash show --text'
+alias gsts='git stash show'
 alias gstsp='git stash show -p'
 alias gstu='git stash --include-untracked'
 
-alias gsw='git switch'
-alias gswc='git switch -c'
+# alias gsw='git switch'
+# alias gswc='git switch -c'
 
-alias gtl='gtl(){ git tag --sort=-v:refname -n -l ${1}* }; noglob gtl'
-alias gts='git tag -s'
-alias gtv='git tag | sort -V'
+# alias gtl='gtl(){ git tag --sort=-v:refname -n -l ${1}* }; noglob gtl'
+# alias gts='git tag -s'
+# alias gtv='git tag | sort -V'
+# alias gtd='git tag --delete'
+# alias gtdr='git tag --delete origin'
 
-alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
+# alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 
-# alias g      ='git'
-# alias ga     ='git add'
-# alias gafzf  ='git ls-files -m -o --exclude-standard | grep -v "__pycache__" | fzf -m --print0 | xargs -0 -o -t git add' # Git add with fzf
-# alias grmfzf ='git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 -o -t git rm' # Git rm with fzf
-# alias grfzf  ='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore' # Git restore with fzf
-# alias grsfzf ='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore --staged' # Git restore --staged with fzf
-# alias gf     ='git fetch'
-# alias gs     ='git status'
-# alias gss    ='git status -s'
-# alias gup    ='git fetch && git rebase'
-# alias gtd    ='git tag --delete'
-# alias gtdr   ='git tag --delete origin'
-# alias glo    ='git pull origin'
-# alias gl     ='git pull'
-# alias gb     ='git branch '
-# alias gbr    ='git branch -r'
-# alias gd     ='git diff'
-# alias gco    ='git checkout '
-# alias gcob   ='git checkout -b '
-# alias gcofzf ='git branch | fzf | xargs git checkout' # Select branch with fzf
-# alias gre    ='git remote'
-# alias gres   ='git remote show'
-# alias glgg   ='git log --graph --max-count=5 --decorate --pretty="oneline"'
-# alias gm     ='git merge'
-# alias gmn    ='git merge --no-commit'
-# alias gcp    ='git cherry-pick'
-# alias gp     ='git push'
-# alias gpo    ='git push origin'
-# alias ggpush ='git push origin $(current_branch)'
-# alias gc     ='git commit -v'
-# alias gcm    ='git commit -m'
-# alias gcmnv  ='git commit --no-verify -m'
-# alias gcanenv='git commit --amend --no-edit --no-verify'
-# alias gst    ='git stash'
+alias gho=open-github.sh
 
 # Better ls
 alias ls="eza --icons=always"
@@ -264,7 +240,6 @@ alias lla='llh; ll'
 # alias l='ls -CF'
 
 alias nv=nvim
-alias lg="lazygit"
+alias lg=lazygit
 alias t=thunar
-# alias z=zoxide
 alias tm=tmux
