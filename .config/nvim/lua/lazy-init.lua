@@ -31,23 +31,24 @@ require("lazy").setup({
     "folke/ts-comments.nvim",
     "nvim-lua/plenary.nvim",
     "stevearc/dressing.nvim", -- ????
-    -- require("plugins.mfussenegger.nvim-dap"), -- debugger
-    -- require("plugins.mfussenegger.nvim-lint"),
-    -- require("plugins.mfussenegger.nvim-lint-lazy"),
-    -- require("plugins.nvim-treesitter.nvim-treesitter-textobjects"),
-    -- require("plugins.tpope.vim-dadbod"), -- database
+    require("plugins.EtiamNullam.deferred-clipboard"),
     require("plugins.RishabhRD.nvim-cheat"), -- cht.sh
     require("plugins.ThePrimeagen.harpoon"),
     require("plugins.akinsho.toggleterm"),
     require("plugins.echasnovski.mini"),
     require("plugins.folke.flash"),
-    require("plugins.folke.lazydev"), -- ????
+    -- require("plugins.folke.lazydev"), -- ????
     require("plugins.folke.trouble"),
+    -- require("plugins.mfussenegger.nvim-dap"), -- debugger
+    -- require("plugins.mfussenegger.nvim-lint"),
+    -- require("plugins.mfussenegger.nvim-lint-lazy"),
     require("plugins.neovim.nvim-lspconfig"),
     require("plugins.numToStr.Comment"),
     require("plugins.nvim-treesitter.nvim-treesitter"),
+    -- require("plugins.nvim-treesitter.nvim-treesitter-textobjects"),
     require("plugins.rmagatti.auto-session"),
     require("plugins.stevearc.aerial"), -- outline
+    -- require("plugins.tpope.vim-dadbod"), -- database
 
     -- ????
     -- "VonHeikemen/lsp-zero.nvim",
@@ -62,8 +63,8 @@ require("lazy").setup({
 
     -- detect tabstop and shiftwidth
     --
-    "tpope/vim-sleuth",
     -- "NMAC427/guess-indent.nvim",
+    "tpope/vim-sleuth",
 
     -- marks
     --
@@ -87,25 +88,25 @@ require("lazy").setup({
     -- files
     --
     -- "stevearc/oil.nvim", -- ????
-    -- require("plugins.nvim-tree.nvim-tree"),
     require("plugins.nvim-neo-tree.neo-tree"),
+    -- require("plugins.nvim-tree.nvim-tree"),
 
     -- find/replace
     --
-    -- require("plugins.gbprod.substitute"),
     require("plugins.MagicDuck.grug-far"),
+    -- require("plugins.gbprod.substitute"),
 
     -- formatting
     --
     "windwp/nvim-ts-autotag",
     -- require("plugins.nvimtools.none-ls"),
-    -- require("plugins.windwp.nvim-autopairs"),
     require("plugins.stevearc.conform"),
+    -- require("plugins.windwp.nvim-autopairs"),
 
     -- autocomplete
     --
-    -- require("plugins.saghen.blink-cmp"),
     require("plugins.hrsh7th.nvim-cmp"),
+    -- require("plugins.saghen.blink-cmp"),
 
     -- layout
     --
@@ -114,38 +115,30 @@ require("lazy").setup({
 
     -- visuals
     --
-    -- require("plugins.tiagovla.scope"), -- scope buffers to tabs
+    require("plugins.brenoprata10.nvim-highlight-colors"),
     require("plugins.folke.todo-comments"),
     require("plugins.folke.which-key"),
     require("plugins.goolord.alpha-nvim"),
     require("plugins.lukas-reineke.indent-blankline"),
     require("plugins.nvim-lualine.lualine"),
+    -- require("plugins.tiagovla.scope"), -- scope buffers to tabs
     require("plugins.tummetott.reticle"),
     require("plugins.willothy.nvim-cokeline"),
     require("plugins.xiyaowong.transparent"),
 
     -- colorschemes
     --
-    -- "rktjmp/lush.nvim", -- dependency for some
-    --
     -- "AlexvZyl/nordic.nvim",
-    -- "EdenEast/nightfox.nvim",
     -- "Mofiqul/adwaita.nvim",
     -- "NTBBloodbath/doom-one.nvim",
     -- "Shatur/neovim-ayu",
-    -- "Tsuzat/NeoSolarized.nvim",
     -- "bluz71/vim-moonfly-colors",
     -- "bluz71/vim-nightfly-colors",
     -- "catppuccin/nvim",
     -- "craftzdog/solarized-osaka.nvim",
-    -- "folke/tokyonight.nvim",
     -- "kvrohit/mellow.nvim",
     -- "kvrohit/rasmus.nvim",
     -- "kvrohit/substrata.nvim",
-    -- "luisiacc/gruvbox-baby",
-    -- "marko-cerovac/material.nvim",
-    -- "mcchrish/zenbones.nvim",
-    -- "metalelf0/base16-black-metal-scheme",
     -- "mhartington/oceanic-next",
     -- "navarasu/onedark.nvim",
     -- "olivercederborg/poimandres.nvim",
@@ -153,30 +146,31 @@ require("lazy").setup({
     -- "ramojus/mellifluous.nvim",
     -- "ray-x/aurora",
     -- "ray-x/starry.nvim",
-    -- "rebelot/kanagawa.nvim",
     -- "ribru17/bamboo.nvim",
     -- "rockyzhang24/arctic.nvim",
-    -- "rose-pine/neovim",
     -- "sainnhe/gruvbox-material",
     -- "samharju/synthweave.nvim",
     -- "savq/melange-nvim",
     -- "shaunsingh/nord.nvim",
     -- "tiagovla/tokyodark.nvim",
-    -- "uloco/bluloco.nvim",
     -- "vague2k/vague.nvim",
     -- "vv9k/bogster",
-    -- "xero/miasma.nvim",
     -- "yashguptaz/calvera-dark.nvim",
-    require("colorschemes.EdenEast.nightfox"),
+    -- require("colorschemes.EdenEast.nightfox"),
+    -- require("colorschemes.Tsuzat.NeoSolarized"),
     -- require("colorschemes.ellisonleao.gruvbox"),
     -- require("colorschemes.folke.tokyonight"),
+    require("colorschemes.luisiacc.gruvbox-baby"),
+    -- require("colorschemes.marko-cerovac.material"),
     -- require("colorschemes.maxmx03.fluoromachine"),
     -- require("colorschemes.maxmx03.solarized"),
     -- require("colorschemes.mcauley-penney.techbase"),
     -- require("colorschemes.metalelf0.black-metal-theme-neovim"),
+    -- require("colorschemes.rebelot.kanagawa"),
     -- require("colorschemes.rockerBOO.boo-colorscheme"),
     -- require("colorschemes.rose-pine.neovim"),
     -- require("colorschemes.scottmckendry.cyberdream"),
+    -- require("colorschemes.xero.miasma"),
     -- require("colorschemes.zenbones-theme.zenbones"),
 
     -- AI

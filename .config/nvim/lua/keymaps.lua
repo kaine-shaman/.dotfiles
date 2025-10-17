@@ -99,8 +99,8 @@ keymap.set("n", "<leader>bb", "<cmd>e #<cr>"        , { desc = "Switch to Other 
 
 keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "<S-l>", "<cmd>bnext<cr>"    , { desc = "Next Buffer" })
-keymap.set("n", "[b"   , "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-keymap.set("n", "]b"   , "<cmd>bnext<cr>"    , { desc = "Next Buffer" })
+-- keymap.set("n", "[b"   , "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+-- keymap.set("n", "]b"   , "<cmd>bnext<cr>"    , { desc = "Next Buffer" })
 
 -- Window management
 keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window [V]ertically"  , remap = true })
@@ -133,13 +133,13 @@ keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase W
 -- keymap.set("n", "<leader>ct", ":tabclose<CR>", { noremap = true, silent = true, desc = "Close current [T]ab" })
 -- keymap.set("n", "]t"        , ":tabn<CR>"    , { noremap = true, silent = true, desc = "Go to next [T]ab" })
 -- keymap.set("n", "[t"        , ":tabp<CR>"    , { noremap = true, silent = true, desc = "Go to previous [T]ab" })
-keymap.set("n", "<leader><tab>l"    , "<cmd>tablast<cr>"    , { desc = "[L]ast Tab" })
-keymap.set("n", "<leader><tab>o"    , "<cmd>tabonly<cr>"    , { desc = "Close [O]ther Tabs" })
-keymap.set("n", "<leader><tab>f"    , "<cmd>tabfirst<cr>"   , { desc = "[F]irst Tab" })
-keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>"     , { desc = "New Tab" })
-keymap.set("n", "<leader><tab>]"    , "<cmd>tabnext<cr>"    , { desc = "Next Tab" })
-keymap.set("n", "<leader><tab>["    , "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-keymap.set("n", "<leader><tab>d"    , "<cmd>tabclose<cr>"   , { desc = "Close Tab" })
+-- keymap.set("n", "<leader><tab>l"    , "<cmd>tablast<cr>"    , { desc = "[L]ast Tab" })
+-- keymap.set("n", "<leader><tab>o"    , "<cmd>tabonly<cr>"    , { desc = "Close [O]ther Tabs" })
+-- keymap.set("n", "<leader><tab>f"    , "<cmd>tabfirst<cr>"   , { desc = "[F]irst Tab" })
+-- keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>"     , { desc = "New Tab" })
+-- keymap.set("n", "<leader><tab>]"    , "<cmd>tabnext<cr>"    , { desc = "Next Tab" })
+-- keymap.set("n", "<leader><tab>["    , "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+-- keymap.set("n", "<leader><tab>d"    , "<cmd>tabclose<cr>"   , { desc = "Close Tab" })
 
 -- Toggle line wrapping
 keymap.set("n", "<leader>tw", "<cmd>set wrap!<CR>", { noremap = true, silent = true, desc = "Line [W]rapping" })

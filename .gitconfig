@@ -1,7 +1,8 @@
 [merge]
     tool = meld
 [diff]
-    tool = nvimdiff
+    ; tool = nvimdiff
+    tool = meld
 
 [color "diff"]
     meta = yellow

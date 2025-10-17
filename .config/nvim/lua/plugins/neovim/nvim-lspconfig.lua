@@ -180,6 +180,7 @@ return {
             cmake = {},
             docker_compose_language_service = {},
             ts_ls = {},
+            eslint = {},
             ruff = {},
             ols = {},
             zls = {},

@@ -58,7 +58,9 @@ opt.splitkeep  = "screen"
 opt.list = true
 opt.listchars = {
     -- tab   = "» ",
-    tab   = "· ",
+    -- tab   = "· ",
+    -- tab   = "⋆ ",
+    tab   = "⋅ ",
     trail = "·",
     nbsp  = "␣",
 }
@@ -117,9 +119,9 @@ opt.backspace = "indent,eol,start" -- allow backspace on
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-    opt.clipboard = "unnamedplus"
-end)
+-- vim.schedule(function()
+--     opt.clipboard = "unnamedplus"
+-- end)
 
 -- opt.laststatus = 3 -- global statusline
 opt.fillchars = {
@@ -162,13 +164,13 @@ opt.completeopt = "menu,menuone,noselect" -- Set completeopt to have a better co
 
 opt.whichwrap = "bs<>[]hl" -- which "horizontal" keys are allowed to travel to prev/next line
 
-opt.showtabline = 2 -- always show tabs
+-- opt.showtabline = 2 -- always show tabs
 
 opt.pumblend  = 10 -- pop up blend
 opt.pumheight = 10 -- pop up menu height
 
--- opt.conceallevel = 0 -- so that `` is visible in markdown files
-opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
+opt.conceallevel = 0 -- so that `` is visible in markdown files
+-- opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 
 opt.fileencoding = "utf-8" -- the encoding written to a file
 

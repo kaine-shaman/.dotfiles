@@ -3,14 +3,6 @@
 return {
     "echasnovski/mini.nvim",
     config = function()
-        -- Better Around/Inside textobjects
-        --
-        -- Examples:
-        --  - va)  - [V]isually select [A]round [)]paren
-        --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-        --  - ci'  - [C]hange [I]nside [']quote
-        require("mini.ai").setup({ n_lines = 500 })
-
         -- Add/delete/replace surroundings (brackets, quotes, etc.)
         --
         -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
@@ -42,19 +34,25 @@ return {
         -- srn - Replace next surrounding
         require("mini.surround").setup()
 
+        ------------------------------------------------------------------------------------------
+
         -- Split and join arguments
         require("mini.splitjoin").setup({
             mappings = {
                 toggle = "<leader>lj",
-                split  = "",
-                join   = "",
+                split = "",
+                join = "",
             },
         })
 
-        -- Stip trailing whitespace
+        ------------------------------------------------------------------------------------------
+
+        -- Strip trailing whitespace
         local miniTrailspace = require("mini.trailspace")
         miniTrailspace.setup()
         vim.keymap.set("n", "<leader>lt", miniTrailspace.trim, { desc = "[T]rim trailing whitespace" })
+
+        ------------------------------------------------------------------------------------------
 
         -- Simple and easy statusline.
         --  You could remove this setup call if you don't like it,
@@ -87,6 +85,14 @@ return {
         --     markdown = true,
         -- })
 
+        ------------------------------------------------------------------------------------------
+
+        -- Better Around/Inside textobjects
+        --
+        -- Examples:
+        --  - va)  - [V]isually select [A]round [)]paren
+        --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+        --  - ci'  - [C]hange [I]nside [']quote
         local ai = require("mini.ai")
         ai.setup({
             -- Number of lines within which textobject is searched
@@ -112,35 +118,37 @@ return {
                 U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
             },
 
-            -- -- Module mappings. Use `''` (empty string) to disable one.
-            -- mappings = {
-            --     -- Main textobject prefixes
-            --     around = 'a',
-            --     inside = 'i',
-            --
-            --     -- Next/last variants
-            --     -- NOTE: These override built-in LSP selection mappings on Neovim>=0.12
-            --     -- Map LSP selection manually to use it (see `:h MiniAi.config`)
-            --     around_next = 'an',
-            --     inside_next = 'in',
-            --     around_last = 'al',
-            --     inside_last = 'il',
-            --
-            --     -- Move cursor to corresponding edge of `a` textobject
-            --     goto_left = 'g[',
-            --     goto_right = 'g]',
-            -- },
+            -- Module mappings. Use `''` (empty string) to disable one.
+            mappings = {
+                -- Main textobject prefixes
+                around = "a",
+                inside = "i",
 
-            -- -- How to search for object (first inside current line, then inside
-            -- -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-            -- -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
-            -- search_method = 'cover_or_next',
-            --
-            -- -- Whether to disable showing non-error feedback
-            -- -- This also affects (purely informational) helper messages shown after
-            -- -- idle time if user input is required.
-            -- silent = false,
+                -- Next/last variants
+                -- NOTE: These override built-in LSP selection mappings on Neovim>=0.12
+                -- Map LSP selection manually to use it (see `:h MiniAi.config`)
+                around_next = "an",
+                inside_next = "in",
+                around_last = "al",
+                inside_last = "il",
+
+                -- Move cursor to corresponding edge of `a` textobject
+                goto_left = "g[",
+                goto_right = "g]",
+            },
+
+            -- How to search for object (first inside current line, then inside
+            -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+            -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
+            search_method = "cover_or_next",
+
+            -- Whether to disable showing non-error feedback
+            -- This also affects (purely informational) helper messages shown after
+            -- idle time if user input is required.
+            silent = false,
         })
+
+        ------------------------------------------------------------------------------------------
 
         local bufremove = require("mini.bufremove")
         vim.keymap.set("n", "<leader>bd", bufremove.delete, { desc = "[D]elete" })

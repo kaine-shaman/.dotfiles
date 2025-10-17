@@ -101,40 +101,46 @@ return {
             -- functions taking a `buffer` parameter and returning a color in
             -- hexadecimal format. Style attributes work the same way, but functions
             -- should return boolean values.
-            -- default_hl = {
-            --     -- default: `ColorColumn`'s background color for focused buffers,
-            --     -- `Normal`'s foreground color for unfocused ones.
-            --     fg = function(buffer)
-            --         local hlgroups = require("cokeline.hlgroups")
-            --         return buffer.is_focused and hlgroups.get_hl_attr("ColorColumn", "bg")
-            --             or hlgroups.get_hl_attr("Normal", "fg")
-            --     end,
-            --
-            --     -- default: `Normal`'s foreground color for focused buffers,
-            --     -- `ColorColumn`'s background color for unfocused ones.
-            --     -- default: `Normal`'s foreground color.
-            --     ---@type nil | string | function(buffer: Buffer): string,
-            --     bg = function(buffer)
-            --         local hlgroups = require("cokeline.hlgroups")
-            --         return buffer.is_focused and hlgroups.get_hl_attr("Normal", "fg")
-            --             or hlgroups.get_hl_attr("ColorColumn", "bg")
-            --     end,
-            --
-            --     -- default: unset.
-            --     ---@type nil | string | function(buffer): string,
-            --     sp = nil,
-            --
-            --     ---@type nil | boolean | fun(buf: Buffer):boolean
-            --     bold = nil,
-            --     ---@type nil | boolean | fun(buf: Buffer):boolean
-            --     italic = nil,
-            --     ---@type nil | boolean | fun(buf: Buffer):boolean
-            --     underline = nil,
-            --     ---@type nil | boolean | fun(buf: Buffer):boolean
-            --     undercurl = nil,
-            --     ---@type nil | boolean | fun(buf: Buffer):boolean
-            --     strikethrough = nil,
-            -- },
+            default_hl = {
+                -- -- default: `ColorColumn`'s background color for focused buffers,
+                -- -- `Normal`'s foreground color for unfocused ones.
+                -- fg = function(buffer)
+                --     local hlgroups = require("cokeline.hlgroups")
+                --     return buffer.is_focused and hlgroups.get_hl_attr("ColorColumn", "bg")
+                --         or hlgroups.get_hl_attr("Normal", "fg")
+                -- end,
+                --
+                -- -- default: `Normal`'s foreground color for focused buffers,
+                -- -- `ColorColumn`'s background color for unfocused ones.
+                -- -- default: `Normal`'s foreground color.
+                -- ---@type nil | string | function(buffer: Buffer): string,
+                -- bg = function(buffer)
+                --     local hlgroups = require("cokeline.hlgroups")
+                --     return buffer.is_focused and hlgroups.get_hl_attr("Normal", "fg")
+                --         or hlgroups.get_hl_attr("ColorColumn", "bg")
+                -- end,
+                --
+                -- -- default: unset.
+                -- ---@type nil | string | function(buffer): string,
+                -- sp = nil,
+                --
+                -- ---@type nil | boolean | fun(buf: Buffer):boolean
+                -- bold = nil,
+                -- ---@type nil | boolean | fun(buf: Buffer):boolean
+                -- italic = nil,
+                -- ---@type nil | boolean | fun(buf: Buffer):boolean
+                -- underline = nil,
+                -- ---@type nil | boolean | fun(buf: Buffer):boolean
+                -- undercurl = nil,
+                -- ---@type nil | boolean | fun(buf: Buffer):boolean
+                -- strikethrough = nil,
+
+                fg = function(buffer)
+                    local hlgroups = require("cokeline.hlgroups")
+                    return buffer.is_focused and hlgroups.get_hl_attr("Cursor", "bg")
+                        or hlgroups.get_hl_attr("Normal", "fg")
+                end,
+            },
             --
             -- -- The highlight group used to fill the tabline space
             -- fill_hl = "TabLineFill",
