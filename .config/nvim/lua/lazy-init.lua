@@ -30,10 +30,10 @@ require("lazy").setup({
 
     "folke/ts-comments.nvim",
     "nvim-lua/plenary.nvim",
-    "stevearc/dressing.nvim", -- ????
     require("plugins.EtiamNullam.deferred-clipboard"),
     require("plugins.RishabhRD.nvim-cheat"), -- cht.sh
     require("plugins.ThePrimeagen.harpoon"),
+    require("plugins.Wansmer.treesj"), -- split/join code blocks
     require("plugins.akinsho.toggleterm"),
     require("plugins.echasnovski.mini"),
     require("plugins.folke.flash"),
@@ -115,14 +115,15 @@ require("lazy").setup({
 
     -- visuals
     --
-    require("plugins.brenoprata10.nvim-highlight-colors"),
-    require("plugins.folke.todo-comments"),
+    "stevearc/dressing.nvim",
+    -- require("plugins.brenoprata10.nvim-highlight-colors"),
     require("plugins.folke.which-key"),
     require("plugins.goolord.alpha-nvim"),
     require("plugins.lukas-reineke.indent-blankline"),
+    require("plugins.norcalli/nvim-colorizer"),
     require("plugins.nvim-lualine.lualine"),
     -- require("plugins.tiagovla.scope"), -- scope buffers to tabs
-    require("plugins.tummetott.reticle"),
+    -- require("plugins.tummetott.reticle"),
     require("plugins.willothy.nvim-cokeline"),
     require("plugins.xiyaowong.transparent"),
 
@@ -159,8 +160,8 @@ require("lazy").setup({
     -- require("colorschemes.EdenEast.nightfox"),
     -- require("colorschemes.Tsuzat.NeoSolarized"),
     -- require("colorschemes.ellisonleao.gruvbox"),
-    -- require("colorschemes.folke.tokyonight"),
-    require("colorschemes.luisiacc.gruvbox-baby"),
+    require("colorschemes.folke.tokyonight"),
+    -- require("colorschemes.luisiacc.gruvbox-baby"),
     -- require("colorschemes.marko-cerovac.material"),
     -- require("colorschemes.maxmx03.fluoromachine"),
     -- require("colorschemes.maxmx03.solarized"),

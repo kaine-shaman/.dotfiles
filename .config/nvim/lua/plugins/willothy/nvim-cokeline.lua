@@ -137,7 +137,8 @@ return {
 
                 fg = function(buffer)
                     local hlgroups = require("cokeline.hlgroups")
-                    return buffer.is_focused and hlgroups.get_hl_attr("Cursor", "bg")
+                    return buffer.is_focused and hlgroups.get_hl_attr("CursorLineNr", "fg")
+                    -- return buffer.is_focused and hlgroups.get_hl_attr("Cursor", "bg")
                         or hlgroups.get_hl_attr("Normal", "fg")
                 end,
             },

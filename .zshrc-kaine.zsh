@@ -84,3 +84,12 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore={"*node_modules*",".git"} -g ""
 
 
 eval "$(zoxide init zsh --cmd z)"
+
+
+# Smarter completion initialization
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi

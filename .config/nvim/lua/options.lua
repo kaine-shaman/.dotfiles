@@ -7,6 +7,14 @@ vim.g.loaded_ruby_provider    = 0
 
 local opt = vim.opt
 
+opt.guicursor = {
+    'n-v-c:block',
+    'i-ci-ve:ver25',
+    'r-cr:hor20',
+    'o:hor50',
+    'a:blinkoff100-blinkon100',
+}
+
 opt.number         = true -- Make line numbers default
 opt.relativenumber = true -- Set relative numbered lines
 

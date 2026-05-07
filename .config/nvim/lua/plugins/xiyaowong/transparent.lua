@@ -6,10 +6,14 @@ return {
 
         local transparent = require("transparent")
 
-        -- transparent.clear_prefix('NeoTree')
-        transparent.clear_prefix('lualine')
-        transparent.clear_prefix('TabLine')
+        transparent.clear_prefix('Diagnostic')
+        -- transparent.clear_prefix('FzfLua')
         transparent.clear_prefix('GitSigns')
+        -- transparent.clear_prefix('Lsp')
+        -- transparent.clear_prefix('NeoTree')
+        transparent.clear_prefix('TabLine')
+        -- transparent.clear_prefix('Telescope')
+        transparent.clear_prefix('lualine')
 
         transparent.setup({
             groups = {
@@ -40,6 +44,10 @@ return {
                 "StatusLineNC",
                 "EndOfBuffer",
                 "WinSeparator",
+
+                "FloatBorder",
+                "FloatFooter",
+                "FloatTitle",
             },
             extra_groups = {
                 -- "NeoTreeBufferNumber",       -- The buffer number shown in the buffers source.
@@ -89,6 +97,15 @@ return {
                 -- "TabLine",
                 -- "TabLineSel",
                 -- "TabLineFill",
+
+                "FzfLuaBorder",
+                "FzfLuaNormal",
+                "FzfLuaTitle",
+                "FzfLuaTitleFlags",
+
+                "TelescopeBorder",
+                "TelescopeNormal",
+                "TelescopePromptBorder",
             },
             exclude_groups = {},
         })

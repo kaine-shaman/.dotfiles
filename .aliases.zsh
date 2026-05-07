@@ -243,3 +243,4 @@ alias nv=nvim
 alias lg=lazygit
 alias t=thunar
 alias tm=tmux
+alias zj=zellij

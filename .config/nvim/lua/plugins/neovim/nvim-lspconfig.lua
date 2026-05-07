@@ -179,7 +179,13 @@ return {
             clangd = {},
             cmake = {},
             docker_compose_language_service = {},
-            ts_ls = {},
+            ts_ls = {
+                -- init_options = {
+                --     preferences = {
+                --         disableSuggestions = true,
+                --     },
+                -- },
+            },
             eslint = {},
             ruff = {},
             ols = {},
@@ -253,7 +259,7 @@ return {
             -- "marksman",
             -- "nil_ls", --
             -- "nim_langserver",
-            -- "prettier", -- prettier formatter -- ERROR --
+            "prettier", -- prettier formatter -- ERROR --
             -- "pylint", -- ERROR --
             -- "pyright",
             -- "rust_analyzer",
